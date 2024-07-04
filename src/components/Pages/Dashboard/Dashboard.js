@@ -46,26 +46,27 @@ const Dashboard = () => {
       <Header headerBoxStyle={headerBoxStyle} />
       <SelectField />
       <VStack>
-        <Grid mt={"14px"} templateColumns={"repeat(2,1fr)"} gap="10px" columnGap="50px">
+        <Grid
+          mt={"14px"}
+          templateColumns={"repeat(2,1fr)"}
+          gap="10px"
+          columnGap="50px"
+        >
           <GridItem>
             <DoughnutChart selectStyle={selectStyle} flexStyle={flexStyle} />
-            </GridItem>
-            <GridItem>
+          </GridItem>
+          <GridItem>
             <CollectionBarGraph
               selectStyle={selectStyle}
               flexStyle={flexStyle}
             />
           </GridItem>
 
-            <GridItem>
-
+          <GridItem>
             <BarGraph selectStyle={selectStyle} flexStyle={flexStyle} />
           </GridItem>
 
-         
-
           <GridItem>
-
             <ModeBarGraph selectStyle={selectStyle} flexStyle={flexStyle} />
           </GridItem>
           <GridItem colSpan={2} rowSpan={2}>

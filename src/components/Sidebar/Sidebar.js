@@ -1,11 +1,5 @@
 import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
   Box,
-  Button,
   Collapse,
   Flex,
   Image,
@@ -54,11 +48,10 @@ const Sidebar = ({ openSidebarfunction, openSidebarState }) => {
   ];
 
   const [selectedComponent, setSelectedComponent] = useState("Dashboard");
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
+  // const handleToggle = () => setShow(!show);
 
-  const handleToggle = () => setShow(!show);
-
-  const { isOpen, onToggle } = useDisclosure()
+  const { isOpen, onToggle } = useDisclosure();
 
   const location = useLocation();
   useEffect(() => {
@@ -143,101 +136,52 @@ const Sidebar = ({ openSidebarfunction, openSidebarState }) => {
                     <Image src={sidebarOrder} />
                     {obj.type === "accordian" ? (
                       <>
-                        {/* <Accordion allowToggle>
-                          <AccordionItem w="inherit" border={"none"} >
-                            <h2>
-                              <AccordionButton p="0" >
-                                <Flex textAlign="left" justifyContent={"flex-end"}>
-                                  {obj.name}
-                                <AccordionIcon />
-                                </Flex>
-                              </AccordionButton>
-                            </h2>
-                            <AccordionPanel pb={4} paddingX={"0"}>
-                              <UnorderedList listStyleType="none" ml={0} pl={0}>
-                                {obj.child.map((childItem, childIndex) => (
-                                  <ListItem
-                                    key={childIndex}
-                                    cursor={"pointer"}
-                                    borderRadius={"8px"}
-                                    p={"8px 10px"}
-                                    color={
-                                      selectedComponent === childItem.name
-                                        ? "#FFF"
-                                        : "#969BA0"
-                                    }
-                                    onClick={() =>
-                                      setSelectedComponent(childItem.name)
-                                    }
-                                    background={
-                                      selectedComponent === childItem.name &&
-                                      "#2295DD"
-                                    }
-                                  >
-                                    <Link as={RouterLink} to={childItem.to}>
-                                      <Text
-                                        fontFamily={'"Poppins", sans-serif'}
-                                        fontWeight={"500"}
-                                        fontSize={"15px"}
-                                      >
-                                        {childItem.name}
-                                      </Text>
-                                    </Link>
-                                  </ListItem>
-                                ))}
-                              </UnorderedList>
-                            </AccordionPanel>
-                          </AccordionItem>
-                        </Accordion> */}
-
-                        <Flex justifyContent={"space-between"} gap="80px"  
+                        <Flex
+                          justifyContent={"space-between"}
+                          gap="80px"
                           color={
                             selectedComponent === obj.name ? "#FFF" : "#969BA0"
                           }
                           onClick={onToggle}
                         >
-                          <Text>
-
-                          {obj.name}
-                          </Text>
+                          <Text>{obj.name}</Text>
                           <ChevronDownIcon h="20px" w="20px" />
                         </Flex>
-                        <Collapse mt={4}  in={isOpen} animateOpacity>
+                        <Collapse mt={4} in={isOpen} animateOpacity>
                           <Box>
-                          <UnorderedList listStyleType="none" ml={0} pl={0}>
-                                {obj.child.map((childItem, childIndex) => (
-                                  <ListItem
-                                    key={childIndex}
-                                    cursor={"pointer"}
-                                    borderRadius={"8px"}
-                                    p={"8px 10px"}
-                                    color={
-                                      selectedComponent === childItem.name
-                                        ? "#FFF"
-                                        : "#969BA0"
-                                    }
-                                    onClick={() =>
-                                      setSelectedComponent(childItem.name)
-                                    }
-                                    background={
-                                      selectedComponent === childItem.name &&
-                                      "#2295DD"
-                                    }
-                                  >
-                                    <Link as={RouterLink} to={childItem.to}>
-                                      <Text
-                                        fontFamily={'"Poppins", sans-serif'}
-                                        fontWeight={"500"}
-                                        fontSize={"15px"}
-                                      >
-                                        {childItem.name}
-                                      </Text>
-                                    </Link>
-                                  </ListItem>
-                                ))}
-                              </UnorderedList>
+                            <UnorderedList listStyleType="none" ml={0} pl={0}>
+                              {obj.child.map((childItem, childIndex) => (
+                                <ListItem
+                                  key={childIndex}
+                                  cursor={"pointer"}
+                                  borderRadius={"8px"}
+                                  p={"8px 10px"}
+                                  color={
+                                    selectedComponent === childItem.name
+                                      ? "#FFF"
+                                      : "#969BA0"
+                                  }
+                                  onClick={() =>
+                                    setSelectedComponent(childItem.name)
+                                  }
+                                  background={
+                                    selectedComponent === childItem.name &&
+                                    "#2295DD"
+                                  }
+                                >
+                                  <Link as={RouterLink} to={childItem.to}>
+                                    <Text
+                                      fontFamily={'"Poppins", sans-serif'}
+                                      fontWeight={"500"}
+                                      fontSize={"15px"}
+                                    >
+                                      {childItem.name}
+                                    </Text>
+                                  </Link>
+                                </ListItem>
+                              ))}
+                            </UnorderedList>
                           </Box>
-
                         </Collapse>
                       </>
                     ) : (

@@ -25,33 +25,33 @@ const BarGraph = ({ selectStyle, flexStyle }) => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-      plugins: {
-            legend: {
-              display: false, // Hide the legend
-            },
-            title: {
-              // display: true,
-              // text: 'Chart.js Horizontal Bar Chart',
-            },
-            tooltip: {
-              callbacks: {
-                label: () => null, // Hide the tooltip label
-              },
-            },
-          },
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+      title: {
+        // display: true,
+        // text: 'Chart.js Horizontal Bar Chart',
+      },
+      tooltip: {
+        callbacks: {
+          label: () => null, // Hide the tooltip label
+        },
+      },
+    },
     scales: {
       y: {
         beginAtZero: true,
         title: {
           display: true,
-          text: 'Rupees (Lakhs)', // Custom label for the y-axis
+          text: "Rupees (Lakhs)", // Custom label for the y-axis
           font: {
             size: 11,
-            family:"Roboto"
+            family: "Roboto",
           },
         },
       },
-}
+    },
   };
 
   const labels = [
@@ -102,7 +102,7 @@ const BarGraph = ({ selectStyle, flexStyle }) => {
             <option value="option2">Option 2</option>
           </Select>
         </Flex>
-        <HStack mt={"26px"} justifyContent={"center"} h="220px"  w="100%">
+        <HStack mt={"26px"} justifyContent={"center"} h="220px" w="100%">
           <Bar options={options} data={data} />
         </HStack>
       </Flex>

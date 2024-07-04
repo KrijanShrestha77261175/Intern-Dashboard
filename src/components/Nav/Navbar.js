@@ -7,16 +7,26 @@ import {
   HamburgerIcon,
   RepeatIcon,
 } from "@chakra-ui/icons";
-import { Image, Flex, Box, Text, Menu, MenuButton, MenuList, MenuItem, IconButton } from "@chakra-ui/react";
+import {
+  Image,
+  Flex,
+  Box,
+  Text,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+} from "@chakra-ui/react";
 import logo from "../../assets/svg/logo.svg";
 import flameLogo from "../../assets/svg/flameLogo.png";
 import { useEffect, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import {CgLogOut} from "react-icons/cg"
-import logout from "../../assets/svg/logout.png"
-import {logoutFunction} from "../utils/deleteToken"
+import { CgLogOut } from "react-icons/cg";
+import logout from "../../assets/svg/logout.png";
+import { logoutFunction } from "../utils/deleteToken";
 
-const Navbar = ({openSidebarfunction, openSidebarState  }) => {
+const Navbar = ({ openSidebarfunction, openSidebarState }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentTime, setCurrentTime] = useState(new Date());
   // Function to format the date as "day Month year"
@@ -55,13 +65,18 @@ const Navbar = ({openSidebarfunction, openSidebarState  }) => {
     <>
       <Flex
         p={{ base: "14px 20px", md: "18px 24px" }}
-        justifyContent={openSidebarState ? "flex-end": "space-between"} 
+        justifyContent={openSidebarState ? "flex-end" : "space-between"}
         height="80px"
         background="#FFF"
         boxShadow="0px 8px 12px 0px rgba(0, 0, 0, 0.04)"
       >
         <Flex alignItems="center" display={openSidebarState ? "none" : "flex"}>
-          <HamburgerIcon onClick={()=>openSidebarfunction() } mr="20px" display={{ base: "none", md: "block" }} cursor={"pointer"}/>
+          <HamburgerIcon
+            onClick={() => openSidebarfunction()}
+            mr="20px"
+            display={{ base: "none", md: "block" }}
+            cursor={"pointer"}
+          />
           <ChevronLeftIcon
             h="24px"
             w="48px"
@@ -113,14 +128,14 @@ const Navbar = ({openSidebarfunction, openSidebarState  }) => {
           </Box>
 
           <Menu>
-  <MenuButton
-    as={IconButton}
-    aria-label='Options'
-    icon={<ChevronDownIcon  width="28px" height="24px" ml="13px" />}
-    variant='flushed'
-  />
-  <MenuList>
-    {/* <MenuItem icon={<AddIcon />}>
+            <MenuButton
+              as={IconButton}
+              aria-label="Options"
+              icon={<ChevronDownIcon width="28px" height="24px" ml="13px" />}
+              variant="flushed"
+            />
+            <MenuList>
+              {/* <MenuItem icon={<AddIcon />}>
       New Tab
     </MenuItem>
     <MenuItem icon={<ExternalLinkIcon />}>
@@ -129,13 +144,12 @@ const Navbar = ({openSidebarfunction, openSidebarState  }) => {
     <MenuItem icon={<RepeatIcon />} >
       Open Closed Tab
     </MenuItem> */}
-    <MenuItem onClick={logoutFunction} >
-    <Image src={logout} w="16px" h="16px" mr="10px"/>
-      Logout
-    </MenuItem>
-  </MenuList>
-</Menu>
-        
+              <MenuItem onClick={logoutFunction}>
+                <Image src={logout} w="16px" h="16px" mr="10px" />
+                Logout
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </Flex>
       </Flex>
     </>

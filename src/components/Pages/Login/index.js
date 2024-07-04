@@ -56,8 +56,6 @@ const Login = () => {
       });
 
       navigate(NAVIGATION_ROUTES.DASHBOARD, { replace: true });
-
-    
     } catch (error) {
       console.error("Login Failed:", error);
     }
@@ -184,7 +182,6 @@ const Login = () => {
           <LoginDecor />
         </Flex>
       </Flex>
-      
     </>
   );
 };
